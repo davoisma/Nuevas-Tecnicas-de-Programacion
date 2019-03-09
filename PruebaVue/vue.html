@@ -1,0 +1,36 @@
+
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-sacale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>VUE.JS</title>
+</head>
+<body>
+
+
+   <div id="contenedor">
+
+    <h2>{{titulo}}</h2>
+
+    Nombre <input  type="text" v-model="inombre">
+    Edad <input  type="text" v-model="iedad">
+    <button v-on:click="agregardatos">Insertar</button>
+
+    <ul>
+      <li v-for="dato of datos">
+        {{dato.nombre}}-{{dato.edad}}
+        <span v-if="dato.edad<18"> - Menor de edad</span>
+        <span v-if="dato.edad>=18"> - Mayor de edad</span>
+      </li>
+    </ul>
+
+
+   </div>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script type="text/javascript" src="vue.js"></script>
+
+</body>
+</html>
