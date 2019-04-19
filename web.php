@@ -16,3 +16,7 @@ Route::get('/', function () {
 });
 
 Route::resource('tasks', 'TaskController', ['except' => 'show']);
+
+Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.'], function () {
+    Route::resource('usuarios', 'UsuarioController', ['except' => ['create', 'edit']]);
+});
