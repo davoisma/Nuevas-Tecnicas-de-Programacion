@@ -1,24 +1,57 @@
+import VueFormGenerator from "vue-form-generator";
+var urlUsers = 'https://jsonplaceholder.typicode.com/users';
+export default {
+	    components: {
+	        "vue-form-generator": VueFormGenerator.component
+	    }
+}
+new Vue({
+	el: '#main',
+	/*created: function() {
+		this.getUsers();*/
+	},
+	data: {
+		//lists:[]
+		schema: {
+	        fields: [
+	        {
+	            type: "input",
+	            inputType: "text",
+	            label: "Name",
+	            model: "name",
+	            placeholder: "",
+	            featured: true,
+	            required: true
+	        },
+	        {
+	            type: "input",
+	            inputType: "text",
+	            label: "Apellido",
+	            model: "apellido",
+	            placeholder: "",
+	            featured: true,
+	            required: true
+	        },
+	        {
+	        	type: "input",
+	            inputType: "text",
+	            label: "Correo",
+	            model: "correo",
+	            placeholder: "",
+	            featured: true,
+	            required: true
+	        }
+	        ]
+	    }
 
-require('./bootstrap');
+	},
+	/*methods: {
+		getUsers: function() {
+			axios.get(urlUsers).then(response => {
+				this.lists = response.data
+			});
+		} 
+	}*/
 
-window.Vue = require('vue');
 
-
-import UsuariosIndex from './components/Usuarios/UsuariosIndex.vue';
-import UsuariosCreate from './components/Usuarios/UsuariosCreate.vue';
-import UsuariosEdit from './components/Usuarios/UsuariosEdit.vue';
-
-const routes = [
-    {
-        path: '/',
-        components: {
-            usuariosIndex: UsuariosIndex
-        }
-    },
-    {path: '/admin/Usuarios/create', component: UsuariosCreate, name: 'createUsuario'},
-    {path: '/admin/Usuarios/edit/:id', component: UsuariosEdit, name: 'editUsuarios'},
-]
-
-const router = new VueRouter({ routes })
-
-const app = new Vue({ router }).$mount('#app')
+});
